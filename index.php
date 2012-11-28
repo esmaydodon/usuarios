@@ -117,7 +117,18 @@
     </div>
     
     <div id="wall"></div>
-    
+<div id="logear">
+<form action="crea_usuarios.php" method="post"> 
+Login(nick):<input name="login" type="text" /> 
+Password:<input name="pass1" type="password" /> 
+Repite Password:<input name="pass2" type="password" />
+Nombre:<input name="nombre" type="text" />
+<!--
+Apellido Paterno:<input name="apaterno" type="text" />
+Apellido Materno:<input name="amaterno" type="text" />-->
+E-mail:<input name="email" type="text" /> <input name="Crear" type="submit" /> 
+</form>
+</div>
  </div>
  
 <script>
