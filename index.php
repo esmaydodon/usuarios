@@ -1,5 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 
 /*
@@ -8,7 +6,8 @@
  * http://www.cristalab.com/tutoriales/muro-parecido-a-facebook-en-php-mysql-y-jquery-c100234l/
  */
 ?>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
 <!--
@@ -34,23 +33,6 @@
   //Cuando el documento esta listo carga el muro
  $(document).ready(function(){
    loadWall();
-    $("#boton_registrar").click(function(evento)
-      {	   $("#logear").css("display", "block");
-            $("#on").css("display", "none");
-        });
-    $("#boton_cerrar").click(function(evento)
-      { $("#logear").css("display", "none");  
-        $("#on").css("display", "none");
-    });
-      
-    $("#boton_on").click(function(evento)
-      {	   $("#on").css("display", "block"); 
-            $("#logear").css("display", "none"); 
-        });
-    $("#boton_cerrar_on").click(function(evento)
-      { $("#on").css("display", "none"); 
-        $("#logear").css("display", "none"); 
-    });
  });
   </script>
   
@@ -120,34 +102,11 @@
      }
 
   </style>
-    <link href="css/adminPanel2.css" rel="stylesheet" type="text/css" />
+  
  </head>
  <body>
  <div id="wrapper">
-     <span class="button medio azul" id="boton_registrar">Registrar</span>
-     <span class="button medio azul" id="boton_on">Sing In</span>
-     <!--formulario registro-->
- <div id="logear" class="notiDetalle2" >  
-<form action="crea_usuarios.php" method="post" class="contacto"> 
-    nick-<input name="login" type="text"/><br>  
-        Password-<input name="pass1" type="password" /> <br>
-            Repite Password-<input name="pass2" type="password"  /><br>
-                Nombre-<input name="nombre" type="text"  /><br>
-                    E-mail-<input name="email" type="text"  /> <br><input name="Crear" type="submit" /> 
-</form>
-     
-     <span class="button medio naranja " id="boton_cerrar">Cerrar</span>
-</div>
-       <!--formulario registro end--> 
-     <!--formulario ingreso-->
-     <div id="on" class="notiDetalle2">      
-<form class="contacto" action="comprueba.php" method="post"> 
-Login:<input name="login" type="text" />
-Password:<input name="pass" type="password" /> <input class="boton" type="submit" value="Entrar" /> 
-</form>
-     <span class="button medio naranja " id="boton_cerrar_on">Cerrar</span>    
-     </div>  
-     <!--formulario ingreso end--> 
+ 
     <div id="form">
        <form action="javascript: addMessage();" method="post" id="form_wall">
           <label for="msg">Type text below...</label>
@@ -159,7 +118,18 @@ Password:<input name="pass" type="password" /> <input class="boton" type="submit
     </div>
     
     <div id="wall"></div>
-
+<div id="logear" class="contacto">
+<form action="crea_usuarios.php" method="post"> 
+Login(nick):<input name="login" type="text" /> 
+Password:<input name="pass1" type="password" /> 
+Repite Password:<input name="pass2" type="password" />
+Nombre:<input name="nombre" type="text" />
+<!--
+Apellido Paterno:<input name="apaterno" type="text" />
+Apellido Materno:<input name="amaterno" type="text" />-->
+E-mail:<input name="email" type="text" /> <input name="Crear" type="submit" /> 
+</form>
+</div>
     <div id="ingresa" class="opcionesIndex"><a href="on.php">Ingresa</a> 
     
     </div>
