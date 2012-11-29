@@ -16,7 +16,6 @@
 
    //ovewrites the cookie
    $facebook->setSession(null);
-
    //redirects to index
   // header('Location: index.php');
 ?>

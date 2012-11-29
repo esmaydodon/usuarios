@@ -27,8 +27,11 @@ require 'src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
-  'appId'  => '130009957153651',
+    'appId'  => '130009957153651',
   'secret' => '607930811c2a5dcf1859dc642a45bc4e',
+//    los datos otenidos de  nuestra aplicacion 
+//    https://developers.facebook.com/apps/130009957153651/
+  
 ));
 /*
   $config = array();
@@ -40,7 +43,7 @@ $facebook = new Facebook(array(
  */
 
 // Get User ID
-$user = $facebook->getUser();
+$user = $facebook->getUser();// de los datos anteriores optenemos datos del user
 
 // We may or may not have this data based on whether the user is logged in.
 //
@@ -52,13 +55,15 @@ if ($user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
     $user_profile = $facebook->api('/me');
-    
+    /*$uid = $facebook->getUser(); 
+    $me = $facebook->api('/me');
+     */
   } catch (FacebookApiException $e) {
     error_log($e);
     $user = null;
   }
 }
-
+//logIn  o logout
 // Login or logout url will be needed depending on current user state.
 if ($user) {
   $logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://kuraka.net/desarrollo/usuarios/logout_fb.php'));
@@ -66,10 +71,11 @@ if ($user) {
 } else {
   $loginUrl = $facebook->getLoginUrl(array('next'=>'http://kuraka.net/desarrollo/usuarios/login.php'));
 }
-
+//$me = $facebook->api('/me');
+// $user_profile = $facebook->api('/me');
 // This call will always work since we are fetching public data.
 $naitik = $facebook->api('/naitik');
-
+//
 ?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -103,6 +109,12 @@ $naitik = $facebook->api('/naitik');
 
     <h3>PHP Session</h3>
     <pre><?php print_r($_SESSION); ?></pre>
+<!--    Array(
+    [fb_130009957153651_code] => AQDYxWTFiJT2iYCtBVBCm0UZoODUFRqOE5Q2PjE2gz-1rdXV7kWk9irJxNbcP6bRpQ2ET1QhskE0cBftBS50KhCNNSkaCKcNrq6qcbNJz_9ZY_YZNY6U69gq6CEHfoUo5bTJz52-aIEERHOqeiJbvtjCuHm-K2l0Dn6WkgeBxE11eMiQp_YwZSfHP3CXCi4wadhGclrJ7meYb6ScpSPBOWpG
+    [fb_130009957153651_access_token] => AAAB2Pk1QO3MBABZCP7KHgLmnosm6WuOQFJFZBJ17tWHZAmOY5ghLwZCpDRDP9zqclPjk6JHbYjQkSAP0NDSAX7oZC2kko51AmtADm89dfNQZDZD
+    [fb_130009957153651_user_id] => 1649043812
+)
+-->
 
     <?php if ($user): ?>
       <h3>You</h3>
@@ -110,12 +122,30 @@ $naitik = $facebook->api('/naitik');
 
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
+<!--      Array
+(
+    [id] => 1649043812
+    [name] => Marlon Martos Quiroz
+    [first_name] => Marlon
+    [last_name] => Martos Quiroz
+    [link] => http://www.facebook.com/marlonmartos
+    [username] => marlonmartos
+    [gender] => male
+    [timezone] => -5
+    [locale] => es_ES
+    [verified] => 1
+    [updated_time] => 2012-11-19T15:21:43+0000
+)-->
     <?php else: ?>
       <strong><em>You are not Connected.</em></strong>
     <?php endif ?>
 
     <h3>Public profile of Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture">
-    <?php echo $naitik['name']; ?>
+    <!--<img src="https://graph.facebook.com/naitik/picture">-->
+    <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
+    <?php //$naitik = $facebook->api('/naitik');
+    //echo $naitik['name']; gracias (y)
+    echo $user_profile['name'];
+    ?>
   </body>
 </html>

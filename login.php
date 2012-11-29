@@ -17,6 +17,7 @@
    $session = $facebook->getSession();
 
    //redirects to index
+   //lo configuro en la aplicacion 
   // header('Location:http://kuraka.net/desarrollo/usuarios/fb.php');
 ?>
 
