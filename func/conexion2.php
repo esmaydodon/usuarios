@@ -2,7 +2,7 @@
 define ("SERVIDOR", "localhost");//localhost
 define ("USUARIO", "kurakane_root");//root
 define ("CLAVE", "1234");//1234
-define ("BASE", "kurakane_carrito");//bbasicokuraka
+define ("BASE", "kurakane_demo");//bbasicokuraka
 $link = mysql_connect(SERVIDOR, USUARIO, CLAVE);
 if (!$link) {
     die('No se pudo conectar con el servidor : ' . mysql_error());

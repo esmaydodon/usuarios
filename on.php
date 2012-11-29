@@ -7,5 +7,6 @@ header("location:user.php"); /* Si ha iniciado la sesion, vamos a user.php */
 <h1>Identificación</h1>
 <form class="miform" action="comprueba.php" method="post"> 
 Login:<input name="login" type="text" />
-Password:<input name="pass" type="password" /> <input class="boton" type="submit" value="Entrar" /> </form><? } /* Y cerramos el else */?>
+Password:<input name="pass" type="password" /> <input class="boton" type="submit" value="Entrar" /> 
+</form><? } /* Y cerramos el else */?>
 <a href="index.php">index</a>
