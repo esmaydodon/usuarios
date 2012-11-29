@@ -14,4 +14,4 @@ echo $_SESSION["login"];
 echo "</strong>Para cerrar la sesión, pulsa: <a href='logout.php'>Aqui</a>";
 echo "";
 }
-?>
+?>    
