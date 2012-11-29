@@ -100,6 +100,7 @@
         left: 450px;
         display: none;
      }
+
   </style>
   
  </head>
@@ -117,7 +118,7 @@
     </div>
     
     <div id="wall"></div>
-<div id="logear">
+<div id="logear" class="contacto">
 <form action="crea_usuarios.php" method="post"> 
 Login(nick):<input name="login" type="text" /> 
 Password:<input name="pass1" type="password" /> 
@@ -129,6 +130,9 @@ Apellido Materno:<input name="amaterno" type="text" />-->
 E-mail:<input name="email" type="text" /> <input name="Crear" type="submit" /> 
 </form>
 </div>
+    <div id="ingresa" class="opcionesIndex"><a href="on.php">Ingresa</a> 
+    
+    </div>
  </div>
  
 <script>
